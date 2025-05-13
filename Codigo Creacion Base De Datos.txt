@@ -1,0 +1,73 @@
+--BASEDE DATOS
+
+CREATE DATABASE baseayl;
+USE baseayl;
+
+CREATE TABLE rol (
+    IdRol INT AUTO_INCREMENT PRIMARY KEY,
+    NombreRol VARCHAR(50) NOT NULL
+) ENGINE=InnoDB;
+
+
+
+
+--EMPRESA
+CREATE TABLE empresaasociada (
+    IdEmpresa INT AUTO_INCREMENT PRIMARY KEY,
+    NombreEmpresa VARCHAR(100) NOT NULL,
+    Direccion VARCHAR(255),
+    Telefono VARCHAR(15)
+) ENGINE=InnoDB;
+
+
+
+
+--USUARIO
+
+CREATE TABLE usuario (
+    IdUsuario INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL UNIQUE,
+    Contrasena VARCHAR(255) NOT NULL,
+    IdRol INT NOT NULL,
+    FOREIGN KEY (IdRol) REFERENCES rol(IdRol) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+
+-- HOJA DE VIDA
+CREATE TABLE hojadevida (
+    IdHojaDeVida INT AUTO_INCREMENT PRIMARY KEY,
+    ExperienciaLaboral TEXT,
+    Educacion TEXT,
+    Habilidades TEXT,
+    IdUsuario INT NOT NULL,
+    FOREIGN KEY (IdUsuario) REFERENCES usuario(IdUsuario) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+
+-- PUESTO DE TRABAJO
+
+CREATE TABLE puestodetrabajo (
+    IdPuesto INT AUTO_INCREMENT PRIMARY KEY,
+    NombrePuesto VARCHAR(100) NOT NULL,
+    Descripcion TEXT,
+    Estado VARCHAR(50) NOT NULL,
+    IdEmpresa INT NOT NULL,
+    FOREIGN KEY (IdEmpresa) REFERENCES empresaasociada(IdEmpresa) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+
+
+
+-- SOLICITUD DE EMPLEO
+CREATE TABLE solicitudempleo (
+    IdSolicitud INT AUTO_INCREMENT PRIMARY KEY,
+    FechaEnvio DATE NOT NULL,
+    Estado VARCHAR(50) NOT NULL,
+    IdUsuario INT NOT NULL,
+    IdPuestoTrabajo INT NOT NULL,
+    FOREIGN KEY (IdUsuario) REFERENCES usuario(IdUsuario) ON DELETE CASCADE,
+    FOREIGN KEY (IdPuestoTrabajo) REFERENCES puestodetrabajo(IdPuesto) ON DELETE CASCADE
+) ENGINE=InnoDB;
