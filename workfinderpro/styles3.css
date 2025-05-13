@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #bfbfbf;
+    background: url('images/image.png') no-repeat center center/cover;
+
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    background-color: #006c99;
+    padding: 10px;
+    color: white;
+  }
+  
+  .nav-logo {
+    width: 40px;
+    margin-right: 10px;
+  }
+  
+  .search {
+    flex-grow: 1;
+    padding: 5px;
+  }
+  
+  .search-btn {
+    background: white;
+    border: 1px solid #ccc;
+    margin: 0 10px;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .form-container {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .left-panel, .right-panel {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  /* Estilo de etiquetas del panel izquierdo */
+  .left-panel label {
+    color: white;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Estilo de etiquetas del panel derecho */
+  .right-panel label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    color: black;
+  }
+  
+  input, select, textarea {
+    width: 90%;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+  }
+  
+  .photo-box {
+    width: 100px;
+    height: 140px;
+    background: lightgray;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .upload-section {
+    margin-top: 10px;
+  }
+  
+  .upload-label {
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .submit-btn {
+    background-color: #45cb55;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    float: right;
+    margin-top: 20px;
+  }
+  
+
+
+  
